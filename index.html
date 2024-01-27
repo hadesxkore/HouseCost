@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>House Renovation Cost Tracker</title>
+    <style>
+        /* Add some basic styling for better visibility */
+        .mt-8 {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1rem;
+        }
+
+        #enteredData p {
+            margin-bottom: 0.5rem;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+
+    <div class="max-w-md mx-auto bg-white p-8 rounded shadow-md">
+
+        <!-- Materials Cost -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Materials Cost</h2>
+            <input type="number" id="materialsInput" class="w-full mb-2 p-2 border rounded" placeholder="Enter cost">
+            <button onclick="addCost('materialsInput', 'materialsTotal')" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">Add Cost</button>
+            <p>Total: <span id="materialsTotal">0</span></p>
+        </div>
+
+        <!-- Workers Cost -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Workers Cost</h2>
+            <input type="number" id="workersInput" class="w-full mb-2 p-2 border rounded" placeholder="Enter cost">
+            <button onclick="addCost('workersInput', 'workersTotal')" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700 focus:outline-none focus:shadow-outline-green active:bg-green-800">Add Cost</button>
+            <p>Total: <span id="workersTotal">0</span></p>
+        </div>
+
+        <!-- Food Cost -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Food Cost</h2>
+            <input type="number" id="foodInput" class="w-full mb-2 p-2 border rounded" placeholder="Enter cost">
+            <button onclick="addCost('foodInput', 'foodTotal')" class="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-700 focus:outline-none focus:shadow-outline-yellow active:bg-yellow-800">Add Cost</button>
+            <p>Total: <span id="foodTotal">0</span></p>
+        </div>
+
+        <!-- Additional Cost -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Additional Cost</h2>
+            <input type="number" id="additionalInput" class="w-full mb-2 p-2 border rounded" placeholder="Enter cost">
+            <button onclick="addCost('additionalInput', 'additionalTotal')" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 focus:outline-none focus:shadow-outline-red active:bg-red-800">Add Cost</button>
+            <p>Total: <span id="additionalTotal">0</span></p>
+        </div>
+
+        <!-- Overall Cost -->
+        <div class="mt-4">
+            <h2 class="text-xl font-bold mb-2">Overall Cost</h2>
+            <p>Total: <span id="overallTotal">0</span></p>
+        </div>
+
+        <!-- Entered Data Section -->
+        <div class="mt-8">
+            <h2 class="text-xl font-bold mb-2">Entered Data</h2>
+            <div id="enteredData"></div>
+        </div>
+        <div class="mt-8">
+            <button onclick="clearAllData()" class="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-700 focus:outline-none focus:shadow-outline-gray active:bg-gray-800">Clear All Data</button>
+        </div>
+
+    </div>
+    <!-- Include Firebase SDK (non-module versions) -->
+    <script src="https://www.gstatic.com/firebasejs/9.2.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore-compat.js"></script>
+
+    <!-- Include Firebase Config -->
+    <script src="firebase-config.js"></script>
+
+    <!-- Include JavaScript Logic -->
+    <script src="script.js"></script>
+
+</body>
+</html>
